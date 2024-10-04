@@ -1,6 +1,6 @@
 import React from 'react';
 import Classes from './NavigationBar.module.css'; 
-import MenuIcon from '../../Assets/hamburger.jpg';
+import MenuIcon from '../../Assets/menu.png';
 
 const NavigationBar = () => {
   return (

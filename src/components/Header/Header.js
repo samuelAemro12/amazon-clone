@@ -1,69 +1,60 @@
 import React from 'react';
-import Classes from './Header.module.css';
+import Classes from './Header.module.css'; 
 import FlagIcon from '../../Assets/icons8-usa-50.png';
 import SearchIcon from '../../Assets/icons8-search-50 (1).png';
+import CartIcon from '../../Assets/cartImg.jpeg';
+import AmazonLogo from '../../Assets/amazonLogo.png';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 const Header = () => {
   return (
     <>
-        <section>
-            <div className={Classes.header__container}>
-               <div className={Classes.logo__cotainer}>
-                <a href='#'>
-                <img src='' alt='amazon logo'/>
-                </a>
-                <div>
-                    <span>
-                      {/*locationPin icon */}
-                    </span>
-                    <div className={Classes.delivery}>
-                      <p>Delivered To</p>
-                      <span>Ethiopia </span>
-                    </div>
-                </div>
-                <div className={Classes.search}>
-                  <select name='' id=''>
-                    <option value=''>All</option>
-                  </select>
-                  <input type='text' name='' id='' placeholder='Search product'></input>
-                  <img src={SearchIcon} alt=''/>
-                </div>
-               </div>
-                <div className={Classes.order__container}>
-                  <a href='' className={Classes.language}>
-                    <img src={FlagIcon}/>
-                    <select>
-                      <option value=''>En</option>
-                    </select>
-                  </a>
-                  <a href=''>
-                    <p>Sign In</p>
-                    <span>Account & Lists</span>
-                  </a>
-                  <a href=''>
-                    <p>returns</p>
-                    <span>& orders</span>
-                  </a>
-                  <a href='' className={Classes.cart}>
-                    {/* cart image */}
-                    <span>0</span>
-                  </a>
+      <header className={Classes.header__container}>
+        <div className={Classes.left__section}>
+          <a href="#" className={Classes.logo__link}>
+            <img src={AmazonLogo} alt="Amazon Logo" className={Classes.logo__img} />
+          </a>
+          <div className={Classes.delivery__info}>
+            <span className={Classes.location__icon}>📍</span>
+            <div>
+              <p className={Classes.delivery__text}>Deliver to</p>
+              <span className={Classes.delivery__location}>Ethiopia</span>
             </div>
           </div>
-        </section>
-        <div className={Classes.lower__container}>
-          {/* hamburger menu icon */}
-            <ul>
-              <li><p>All</p></li>
-              <li>Today's Deals</li>
-              <li>Customer Service</li>
-              <li>Registry</li>
-              <li>Gift Cards</li>
-              <li>Sell</li>
-            </ul>
         </div>
+        <div className={Classes.search__container}>
+          <select className={Classes.search__select}>
+            <option value="all">All</option>
+          </select>
+          <input type="text" className={Classes.search__input} placeholder="Search Products" />
+          <button className={Classes.search__button}>
+            <img src={SearchIcon} alt="Search Icon" className={Classes.search__icon} />
+          </button>
+        </div>
+        <div className={Classes.right__section}>
+          <div className={Classes.language__container}>
+            <img src={FlagIcon} alt="Language" />
+            <select className={Classes.language__select}>
+              <option value="en">EN</option>
+            </select>
+          </div>
+          <a href="#" className={Classes.account__link}>
+            <p>Hello, Sign in</p>
+            <span>Account & Lists</span>
+          </a>
+          <a href="#" className={Classes.orders__link}>
+            <p>Returns</p>
+            <span>& Orders</span>
+          </a>
+          <a href="#" className={Classes.cart__link}>
+            <img src={CartIcon} alt="Cart" className={Classes.cart__img} />
+            <span className={Classes.cart__count}>0</span>
+          </a>
+        </div>
+      </header>
+      <NavigationBar/>
     </>
-  )
-}
+  );
+};
 
 export default Header;
