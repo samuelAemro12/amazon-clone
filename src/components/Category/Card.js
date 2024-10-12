@@ -1,10 +1,11 @@
 import React from 'react';
 import { title, imageLink } from './CategoryFetchData';
 // although importing title and imagelink is redundent it'd be safer for me to get back to it
+import Classes from './Category.module.css';
 
 const Card = ({data}) => {
   return (
-    <div>
+    <div className={Classes.category__container}>
       <a href=''>
         <span>
             <h2>{data.title}</h2>
