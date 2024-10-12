@@ -5,7 +5,7 @@ import Classes from './Category.module.css';
 
 const Card = ({data}) => {
   return (
-    <div className={Classes.category__container}>
+    <div className={Classes.card}>
       <a href=''>
         <span>
             <h2>{data.title}</h2>

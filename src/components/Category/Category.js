@@ -5,8 +5,8 @@ import Card from './Card';
 
 const Category = () => {
   return (
-    <div className={Classes.Category__co}>
-      <section>
+    <div className={Classes.Category__container}>
+      <section className={Classes.section}>
         {
             CategoryFetchData.map((data)=>{
                return <Card data={data} key={data.name}/>
