@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
   return (
     <div>
-      <a href=''>
+      <a href={product.url}>
         <img src='' alt=''/>
       </a>
       <div>
-        <h3>title</h3>
+        <h3>product.title</h3>
         <div>
             {/* rating */}
             {/* price */}
