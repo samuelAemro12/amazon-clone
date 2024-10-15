@@ -3,22 +3,23 @@ import { Rating } from '@mui/material';
 import CurrencyFormat from '../CurrencyFormat/CurrencyFormat';
 
 const ProductCard = ({product}) => {
+  const {image, title, rating, price} = product;
   return (
     <div>
       <a href={product.url}>
-        <img src='' alt=''/>
+        <img src={image} alt=''/>
       </a>
       <div>
-        <h3>product.title</h3>
+        <h3>{title}</h3>
         <div>
             {/* rating */}
-            <Rating value={5} precision={0.1}/>
+            <Rating value={rating.rate} precision={0.1}/>
             {/* count */}
-            <small>{60}</small>
+            <small>{rating.count}</small>
         </div>        
         <div>
             {/* price */}
-            <CurrencyFormat amount={22.14}/>
+            <CurrencyFormat amount={price}/>
         </div>
       </div>
       <button>
