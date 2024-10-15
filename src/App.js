@@ -10,7 +10,8 @@ function App() {
       <Header/>
       <CarouselEffect/> 
       <Category/>
-      <Product/>
+      <Product/> 
+      {/* product now successfull */}
     </div>
   );
 }
