@@ -7,13 +7,13 @@ import Classes from './Product.module.css';
 const ProductCard = ({product}) => {
   const {image, title, rating, price} = product;
   return (
-    <div className={Classes.ProductCard}>
+    <div className={Classes.Product__card}>
       <a href={product.url}>
         <img src={image} alt='' className={Classes.image}/>
       </a>
       <div className={Classes.product__details}>
         <h3>{title}</h3>
-        <div className={Classes.rating__container}>
+        <div className={Classes.rating}>
             <Rating value={rating.rate} precision={0.1}/>
             <small>{rating.count}</small>
         </div>        
