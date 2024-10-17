@@ -31,8 +31,13 @@
     cursor: pointer;
   }
   
-  .nav__list li:hover {
-    text-decoration: underline;
+  .nav__list li:hover{
+    border: white 1px solid;
+    border-radius: 5px;
+  }
+  .lower__container span:hover{
+    border: white 1px solid;
+    border-radius: 3px;
   }
   @media (max-width: 768px) {
         .lower__container ul {

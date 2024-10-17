@@ -109,7 +109,30 @@
     color: black;
     font-weight: bold;
   }
-
+.logo__link:hover{
+  border: white 1px solid;
+  border-radius: 5px;
+} 
+.delivery__info:hover{
+  border: white 1px solid;
+  border-radius: 5px;
+}
+.language__container:hover{
+    border: white 1px solid;
+  border-radius: 5px;  
+}
+.account__link:hover{
+  border: white 1px solid;
+  border-radius: 5px;
+}
+.orders__link:hover {
+  border: white 1px solid;
+  border-radius: 5px;
+}
+.cart__link:hover{
+  border: white 1px solid;
+  border-radius: 5px;
+}
   @media (max-width: 768px) {
 
     .header__container {
