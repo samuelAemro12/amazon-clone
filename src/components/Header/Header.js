@@ -5,15 +5,15 @@ import SearchIcon from '../../Assets/icons8-search-50 (1).png';
 import CartIcon from '../../Assets/cartImg.jpeg';
 import AmazonLogo from '../../Assets/amazonLogo.png';
 import NavigationBar from '../NavigationBar/NavigationBar';
-
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
       <header className={Classes.header__container}>
         <div className={Classes.left__section}>
-          <a href="#" className={Classes.logo__link}>
+          <Link to="/" className={Classes.logo__link}>
             <img src={AmazonLogo} alt="Amazon Logo" className={Classes.logo__img} />
-          </a>
+          </Link>
           <div className={Classes.delivery__info}>
             <span className={Classes.location__icon}>📍</span>
             <div>
@@ -38,18 +38,18 @@ const Header = () => {
               <option value="en">EN</option>
             </select>
           </div>
-          <a href="#" className={Classes.account__link}>
+          <Link to="#" className={Classes.account__link}>
             <p>Hello, Sign in</p>
             <span>Account & Lists</span>
-          </a>
-          <a href="#" className={Classes.orders__link}>
+          </Link>
+          <Link to="/orders" className={Classes.orders__link}>
             <p>Returns</p>
             <span>& Orders</span>
-          </a>
-          <a href="#" className={Classes.cart__link}>
+          </Link>
+          <Link to="/cart" className={Classes.cart__link}>
             <img src={CartIcon} alt="Cart" className={Classes.cart__img} />
             <span className={Classes.cart__count}>0</span>
-          </a>
+          </Link>
         </div>
       </header>
       <NavigationBar/>
