@@ -5,6 +5,7 @@ import SignUp from './Pages/Auth/SignUp';
 import Payment from './Pages/Payment/Payment';
 import Orders from './Pages/Orders/Orders';
 import Cart from './Pages/Cart/Cart';
+import Results from './Pages/Results/Results';
 
 const Routers = () => {
   return (
@@ -14,7 +15,8 @@ const Routers = () => {
         <Route path= "/auth" element={<SignUp/>}/>
         <Route path= "/payment" element={<Payment/>}/>
         <Route path= "/orders" element={<Orders/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path= "/cart" element={<Cart/>}/>
+        <Route path= "/category/:categoryName" element={<Results/>}/>
       </Routes>
     </Router>
   )
