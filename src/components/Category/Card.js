@@ -6,11 +6,11 @@ import Classes from './Category.module.css';
 const Card = ({data}) => {
   return (
     <div className={Classes.card}>
-      <a href=''>
+      <a href='/'>
         <span>
-            <h2>{data.title}</h2>
+            <h2>{data?.title}</h2>
         </span>
-        <img src={data.image} alt=''/>
+        <img src={data?.image} alt=''/>
         <p>Shop now</p>
       </a>
     </div>
