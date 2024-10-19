@@ -21,8 +21,8 @@ const Results = () => {
   return (
     <LayOut >
       <section>
-        <h1>Results</h1>
-        <p>Category / {catergoryName}</p>
+        <h1 className={Classes.title}>Results</h1>
+        <p className={Classes.paragraph}>Category / {catergoryName}</p>
         <hr/>
         <div className={Classes.product__container}>
           {
