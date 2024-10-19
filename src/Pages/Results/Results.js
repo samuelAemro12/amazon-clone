@@ -7,10 +7,10 @@ import {productUrl} from '../../API/endPoint'
 import ProductCard from '../../components/Product/ProductCard';
 
 const Results = () => {
-  const {catergoryName} = useParams();
+  const {categoryName} = useParams();
   const [result, setResult] = useState([]);
   useEffect(()=>{
-    axios.get(`${productUrl}/products/category/${catergoryName}`)
+    axios.get(`${productUrl}/products/category/${categoryName}`)
     .then((res)=>{
       setResult(res.data)
     }).catch((err)=>{
@@ -22,7 +22,7 @@ const Results = () => {
     <LayOut >
       <section>
         <h1 className={Classes.title}>Results</h1>
-        <p className={Classes.paragraph}>Category / {catergoryName}</p>
+        <p className={Classes.paragraph}>Category / {categoryName}</p>
         <hr/>
         <div className={Classes.product__container}>
           {
