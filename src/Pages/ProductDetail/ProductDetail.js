@@ -10,8 +10,8 @@ import Loader from '../../components/Loader/Loader';
 const ProductDetail = () => {
   const {productId} = useParams();
   const [product, setProduct] = useState({});
-
   const [isLoading, setIsLoading]  = useState(false);
+  
   useEffect(()=>{
     setIsLoading(true);
     axios.get(`${productUrl}/${productId}`)
@@ -27,8 +27,8 @@ const ProductDetail = () => {
 
   return (
     <LayOut>
-      {isLoading?(<Loader/>):
-      (<ProductCard product={product}/>)}
+      {isLoading?(<Loader/>):(
+      <ProductCard product={product}/>)}
     </LayOut>
   );
 }  
