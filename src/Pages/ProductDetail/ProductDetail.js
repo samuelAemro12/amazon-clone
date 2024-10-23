@@ -14,7 +14,7 @@ const ProductDetail = () => {
 
   useEffect(()=>{
     setIsLoading(true);
-    axios.get(`${productUrl}/${productId}`)
+    axios.get(`${productUrl}/products/${productId}`)
     .then((res)=>{
       setProduct(res.data);
       setIsLoading(false);
@@ -22,7 +22,7 @@ const ProductDetail = () => {
         console.log(err);
         setIsLoading(false);
     })
-  },[]);
+  },[productId]);
   
 
   return (
