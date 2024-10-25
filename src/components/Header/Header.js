@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Classes from './Header.module.css'; 
 import FlagIcon from '../../Assets/icons8-usa-50.png';
 import SearchIcon from '../../Assets/icons8-search-50 (1).png';
@@ -6,7 +6,11 @@ import CartIcon from '../../Assets/cartImg.jpeg';
 import AmazonLogo from '../../Assets/amazonLogo.png';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../DataProvider/DataProvider';
+
 const Header = () => {
+  const [basket, dispatch] = useContext(DataContext);
+
   return (
     <>
       <header className={Classes.header__container}>
@@ -48,7 +52,7 @@ const Header = () => {
           </Link>
           <Link to="/cart" className={Classes.cart__link}>
             <img src={CartIcon} alt="Cart" className={Classes.cart__img} />
-            <span className={Classes.cart__count}>0</span>
+            <span className={Classes.cart__count}>{basket.length}</span>
           </Link>
         </div>
       </header>
