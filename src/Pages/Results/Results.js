@@ -31,7 +31,8 @@ const Results = () => {
           {
             result?.map((product)=>{
               return(
-              <ProductCard key={product.id} product={product}/>
+              <ProductCard key={product.id} product={product}
+                           renderDescription={false} renderAdd={true}/>
             )})
           }
         </div>)

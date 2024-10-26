@@ -3,6 +3,7 @@ import Classes from './Cart.module.css';
 import LayOut from '../../components/LayOut/LayOut';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import ProductCard from '../../components/Product/ProductCard';
+import { flushSync } from 'react-dom';
 
 const Cart = () => {
   const [{basket, user}, dispatch] =useContext(DataContext);
@@ -21,6 +22,7 @@ const Cart = () => {
                 key={i}
                 renderDescription={true}
                 flex={true}
+                renderAdd={false}
               />)
             }))
           }

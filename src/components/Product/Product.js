@@ -22,7 +22,8 @@ return (
     <>
     {isLoading?(<Loader/>):( <div className={Classes.product}>
             {products.map((singleProduct) => {
-                return <ProductCard key={singleProduct.id} product={singleProduct} />
+                return <ProductCard key={singleProduct.id} product={singleProduct}
+                                    renderAdd={true} />
             })
             }
         </div>)}
