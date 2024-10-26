@@ -14,8 +14,8 @@ const Cart = () => {
 
   return (
     <LayOut>
-      <section>
-        <div>
+      <section className={Classes.container__section}>
+        <div className={Classes.cart__container}>
           <h2>Hello</h2>
           <h3>Your shopping basket</h3>
           <hr/>
@@ -35,7 +35,7 @@ const Cart = () => {
         
         {
           basket?.length !==0 &&(
-            <div>
+            <div className={Classes.subtotal}>
               <div>
                 <p>Subtotal 9({basket?.length} items)</p>
                 <CurrencyFormat amount={total}/>
