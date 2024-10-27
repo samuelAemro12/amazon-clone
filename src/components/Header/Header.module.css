@@ -100,14 +100,20 @@
   }
   
   .cart__count {
+    font-size: 1rem;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: -5px; 
     background-color: #f08804;
-    padding: 2px 6px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    color: black;
+    color: black; 
     font-weight: bold;
+    z-index: 1; 
   }
 .logo__link:hover{
   border: white 1px solid;

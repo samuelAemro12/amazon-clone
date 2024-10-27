@@ -52,7 +52,8 @@ const Header = () => {
           </Link>
           <Link to="/cart" className={Classes.cart__link}>
             <img src={CartIcon} alt="Cart" className={Classes.cart__img} />
-            <span className={Classes.cart__count}>{basket.length}</span>
+            <span className={Classes.cart__count}>{basket ? basket.length : 0}</span>
+
           </Link>
         </div>
       </header>
