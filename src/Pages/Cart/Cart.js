@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
   const [{basket, user}, dispatch] =useContext(DataContext);
   const total =  basket.reduce((amount, item)=> {
-   return item.price + amount;
-  })
+   return item.price * item.amount + amount;
+  }, 0)
 
   return (
     <LayOut>
