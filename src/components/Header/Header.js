@@ -9,7 +9,10 @@ import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
 const Header = () => {
-  const [basket, dispatch] = useContext(DataContext);
+  const [{basket}, dispatch] = useContext(DataContext);
+  const totalItem = basket?.reduce((amount, item)=>{
+    return item.amount + amount
+  }, 0)
 
   return (
     <>
@@ -52,7 +55,8 @@ const Header = () => {
           </Link>
           <Link to="/cart" className={Classes.cart__link}>
             <img src={CartIcon} alt="Cart" className={Classes.cart__img} />
-            <span className={Classes.cart__count}>{basket ? basket.length : 0}</span>
+            {/* <span className={Classes.cart__count}>{basket ? basket.length : 0}</span> */}
+            <span className={Classes.cart__count}>{totalItem}</span>
 
           </Link>
         </div>
