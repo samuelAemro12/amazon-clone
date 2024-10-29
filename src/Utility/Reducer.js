@@ -22,9 +22,22 @@ export const reducer =(state, action) =>{
                             basket :updatedBasket
                         }
                     }
-            
-        
-    
+            case Type.REMOVE_FROM_BASKET:
+                const index = state.basket.findIndex(itme=>item.id === action.id);
+                let newBasket = [...state.basket]
+
+                if (index >= 0) {
+                    if (newBasket[index].amount > 1) {
+                        newBasket[index] = {...newBasket[index],amount:newBasket[index].amount-1}
+
+                    } else {
+                        newBasket.splice(index,1)
+                    }                    
+                }
+                return{
+                    ...state,
+                    baskety:newBasket
+                }
         default:
             return state;
         }
