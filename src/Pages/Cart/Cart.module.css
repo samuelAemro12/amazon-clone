@@ -69,6 +69,6 @@
     background-color: #fff;
     border: none;
 }
-.btn:hover svg{
+.btn:hover {
     background-color: var(--primary-color);
 }
