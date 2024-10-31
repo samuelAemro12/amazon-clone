@@ -47,9 +47,9 @@ const decrement = (id) =>{
                 renderAdd={false}
               />
               <div className={Classes.btn__wrapper}>
-                <button className={btn} onClick={()=>increment(item)}>+</button>
+                <button className={Classes.btn} onClick={()=>increment(item)}>+</button>
                 <span>{item.amount}</span>
-                <button className={btn} onClick={()=>decrement(item.id)}>-</button>
+                <button className={Classes.btn} onClick={()=>decrement(item.id)}>-</button>
               </div>
              </section>
               )
