@@ -1,0 +1,73 @@
+.signin{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signin img{
+    object-fit: contain;
+    width:  100px;
+    margin: 30px auto;
+}
+.signin__container{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border:1px solid lightgray ;
+    padding: 20px;
+}
+.signin__container h1{
+    font-size: 25px;
+    margin: 20px 0;
+}
+.signin__container form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.signin__container div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.signin__container form input{
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: white;
+    width: 100%;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.signin__container form input:focus{
+    outline: 2px solid skyblue;
+}
+.signin__button{
+    border: none;
+    background: #fec14b;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.signin__container p{
+    padding: 10px 0;
+    font-size: 12px;
+}
+.account__create__button{
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.signin__button:hover{
+    background-color: var();
+}
+.account__create__button:hover{
+    background-color: lightgrey;
+}
