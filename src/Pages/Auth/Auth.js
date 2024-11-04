@@ -13,8 +13,11 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
   const [{user}, dispatch] = useContext(DataContext)
+  const [isLoading, setIsLoading]  = useState({
+    signIn:false,
+    signUp:false
+  });
 
   const authHandler = async (e)=>{
       e.preventDefault();
@@ -23,26 +26,30 @@ const Auth = () => {
 
     if (e.target.name == "signin") {
       // firbase authentication
-      createUserWithEmailAndPassword(auth, email, password)
+      setIsLoading({...isLoading, signIn:true});
+      signInWithEmailAndPassword(auth, email, password)
       .then((userInformation)=>{
           dispatch({
             type:Type.SET_USER,
             user:userInformation.user
-       })
-      }).catch((error)=>{
-        console.log(error);
-        
+       });
+       setIsLoading({...isLoading, signIn:false});
+      }).catch((err)=>{
+        setError(err.message);
+        setIsLoading({...isLoading, signIn:false})
       })
     } else{
+      setIsLoading({...isLoading, signUp:true});
       createUserWithEmailAndPassword(auth, email, password)
       .then((userInformation)=>{
           dispatch({
             type:Type.SET_USER,
             user:userInformation.user
        });
-      }).carch((error)=>{
-        console.log(error);
-        
+       setIsLoading({...isLoading, signUp:false});
+      }).catch((err)=>{
+        setError(err.message);
+        setIsLoading({...isLoading, signUp:false})
       })
     }
   };
@@ -79,6 +86,11 @@ const Auth = () => {
         <button className={Classes.account__create__button}
                 type="submit" onClick={authHandler} name='signun'
         >Create your Amazon account</button>
+        {error && <small
+          style={{paddingTop:"5px",
+            color:"red"
+          }}        
+        >{error}</small>}
       </div>
     </section>
   )
