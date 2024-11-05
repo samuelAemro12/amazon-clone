@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
 
 const Header = () => {
-  const [{basket}, dispatch] = useContext(DataContext);
+  const [{user, basket}, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item)=>{
     return item.amount + amount
   }, 0)
@@ -46,7 +46,15 @@ const Header = () => {
             </select>
           </div>
           <Link to="#" className={Classes.account__link}>
-            <p>Hello, Sign in</p>
+            <div>
+              {
+                user?(
+                  <p>Hello {user?.email?.split("@")[0]}</p>
+              ):(
+                <p>Hello, Sign In</p>
+              )
+              }
+            </div>
             <span>Account & Lists</span>
           </Link>
           <Link to="/orders" className={Classes.orders__link}>
