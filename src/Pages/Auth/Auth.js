@@ -6,7 +6,7 @@ import {auth} from '../../Utility/Firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 import {DataContext} from '../../components/DataProvider/DataProvider';
 import { Type } from '../../Utility/action.type';
-
+import Loader from '../../components/Loader/Loader';
 
 const Auth = () => {
 
@@ -75,7 +75,12 @@ const Auth = () => {
           <button className={Classes.signin__button}
                   type="submit" onClick={authHandler}
                   name='signin'
-          >Sign in</button>
+          >{
+            isLoading.signIn ? (
+              <Loader size={15} color="black"/>
+            ):("Sign In")
+          }
+          </button>
         </form>
         <p>
           By Signing-in you agree to the AMAZON CLONE BY SAMUEL AEMRO conditions of use &
@@ -85,7 +90,13 @@ const Auth = () => {
 
         <button className={Classes.account__create__button}
                 type="submit" onClick={authHandler} name='signun'
-        >Create your Amazon account</button>
+        >
+          {
+            isLoading.signUp ? (
+              <Loader size={15} color="black"/>
+            ):("Create your Amazon Account")
+          }
+        </button>
         {error && <small
           style={{paddingTop:"5px",
             color:"red"
