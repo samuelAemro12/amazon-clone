@@ -7,6 +7,8 @@ import AmazonLogo from '../../Assets/amazonLogo.png';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
+import { auth } from '../../Utility/Firebase';
+
 
 const Header = () => {
   const [{user, basket}, dispatch] = useContext(DataContext);
@@ -45,17 +47,23 @@ const Header = () => {
               <option value="en">EN</option>
             </select>
           </div>
-          <Link to="#" className={Classes.account__link}>
+          <Link to={!user && "/auth"} className={Classes.account__link}>
             <div>
               {
-                user?(
-                  <p>Hello {user?.email?.split("@")[0]}</p>
-              ):(
-                <p>Hello, Sign In</p>
+                user?
+                  (<>
+                   <p>Hello {user?.email?.split("@")[0]}</p>
+                   <span onClick={()=>auth.signOut()}>
+                    Sign Out</span>
+                  </> ):                
+              (
+                <>
+                  <p>Hello, Sign In</p>
+                  <span>Account & Lists</span>
+                </>
               )
               }
             </div>
-            <span>Account & Lists</span>
           </Link>
           <Link to="/orders" className={Classes.orders__link}>
             <p>Returns</p>
