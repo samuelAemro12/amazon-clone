@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Classes from './Auth.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Amazonimg from '../../Assets/AmazonLogoForSignUp.jpg';
 import {auth} from '../../Utility/Firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
@@ -18,6 +18,7 @@ const Auth = () => {
     signIn:false,
     signUp:false
   });
+  const navigate = useNavigate();
 
   const authHandler = async (e)=>{
       e.preventDefault();
@@ -34,6 +35,7 @@ const Auth = () => {
             user:userInformation.user
        });
        setIsLoading({...isLoading, signIn:false});
+       navigate("/");
       }).catch((err)=>{
         setError(err.message);
         setIsLoading({...isLoading, signIn:false})
@@ -47,6 +49,7 @@ const Auth = () => {
             user:userInformation.user
        });
        setIsLoading({...isLoading, signUp:false});
+       navigate("/");
       }).catch((err)=>{
         setError(err.message);
         setIsLoading({...isLoading, signUp:false})
