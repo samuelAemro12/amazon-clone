@@ -60,7 +60,7 @@ const Auth = () => {
 
   return (
     <section className={Classes.signin}>
-      <Link>
+      <Link to={"/"}>
       <img src={Amazonimg} alt='Amazon logo'></img>
       </Link>
 
