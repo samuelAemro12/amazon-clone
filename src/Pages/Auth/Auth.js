@@ -6,7 +6,7 @@ import {auth} from '../../Utility/Firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 import {DataContext} from '../../components/DataProvider/DataProvider';
 import { Type } from '../../Utility/action.type';
-import Loader from '../../components/Loader/Loader';
+import { RiseLoader } from 'react-spinners';
 
 const Auth = () => {
 
@@ -80,7 +80,7 @@ const Auth = () => {
                   name='signin'
           >{
             isLoading.signIn ? (
-              <Loader size={15} color="black"/>
+              <RiseLoader size={6} color="black"/>
             ):("Sign In")
           }
           </button>
@@ -96,7 +96,7 @@ const Auth = () => {
         >
           {
             isLoading.signUp ? (
-              <Loader size={15} color="black"/>
+              <RiseLoader size={6} color="black"/>
             ):("Create your Amazon Account")
           }
         </button>
