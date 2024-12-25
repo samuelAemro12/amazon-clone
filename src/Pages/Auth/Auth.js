@@ -25,7 +25,7 @@ const Auth = () => {
 
       // console.log(e.target.value);
 
-    if (e.target.name == "signin") {
+    if (e.target.name === "signin") {
       // firbase authentication
       setIsLoading({...isLoading, signIn:true});
       signInWithEmailAndPassword(auth, email, password)
