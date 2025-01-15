@@ -7,17 +7,47 @@
 .payment{
     padding: 30px;
 }
-.flex{
+.payment__stacker{
     display: flex;
     gap:20px;
     padding: 30px;
 }
-.flex h3{
+.payment__stacker
+    h3{
     min-width: 300px;
 }
-.flex image{
+.payment__stacker
+    image{
     width: 80px !important;
 }
-.flex div{
+.payment__stacker
+    div{
     height: auto !important;
+}
+.payment__card{
+    max-width: 150px;
+    width:100%;
+}
+.payment__info{
+    font-size: 20px;
+}
+.payment__price{
+    padding: 20px;
+}
+.payment__price > div{
+    display: flex;
+    font-size: 16px;
+    gap: 10px;
+}
+.payment__price button{
+    margin-top: 15px;
+    border:none;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+.payment__info button:hover{
+    background-color: var(--primary-color);
 }

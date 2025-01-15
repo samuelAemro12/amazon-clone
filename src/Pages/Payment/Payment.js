@@ -4,6 +4,7 @@ import LayOut from '../../components/LayOut/LayOut';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import ProductCard from '../../components/Product/ProductCard.js';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
+import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat.js';
 
 const Payment = () => {
   const stripe = useStripe();
@@ -19,13 +20,17 @@ const Payment = () => {
     return item.amount + amount;
   },0);
 
+  const total =  basket.reduce((amount, item)=> {
+    return item.price * item.amount + amount;
+   }, 0);
+
   return (
     <LayOut>
       <div className={Classes.Payment__header}>
       Cheeckout ({totalItem}) items 
       </div>
       <section className={Classes.payment}>
-        <div className={Classes.flex}>
+        <div className={Classes.payment__stacker}>
           <h3>Delivery Address</h3>
           <div>
             <div>{user?.email}</div>
@@ -34,7 +39,7 @@ const Payment = () => {
           </div>
         </div>
         <hr/>
-        <div className={Classes.flex}>
+        <div className={Classes.payment__stacker}>
           <h3>Review items and delivery</h3>
           <div>
         {
@@ -45,14 +50,21 @@ const Payment = () => {
           </div>
         </div>
         <hr/>
-        <div className={Classes.flex}>
+        <div className={Classes.payment__stacker}>
           <h3>Payment Methods</h3>
-          <div className={Classes.payment__card__Container}>
-            <div>
+          <div className={Classes.payment__card}>
+            <div className={Classes.info}>
               <form action=''>
-              {errors && <small style={{color:"red"}}>{errors}</small>
-              }
-                <CardElement onChange={changeHandler}/>
+              {errors && <small style={{color:"red"}}>{errors}</small>}
+                <CardElement style={{gap:"10px"}} onChange={changeHandler}/>
+                <div className={Classes.payment__price}>
+                  <div>
+                    <span style={{display:"flex", gap:"20px"}}>
+                        <p>Total Item:</p> <CurrencyFormat amount={total}/>
+                    </span>
+                  </div>
+                  <button>Pay now</button>
+                </div>
               </form>
             </div>
           </div>
