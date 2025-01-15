@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import Classes from './Payment.module.css'
 import LayOut from '../../components/LayOut/LayOut';
 import { DataContext } from '../../components/DataProvider/DataProvider';
@@ -8,7 +8,11 @@ import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
-
+  const [errors, SetErrors] = useState(null);
+  const changeHandler = (e) =>{
+    console.log(e);
+    (e?.error?.message? SetErrors(e?.error?.message): SetErrors(""));
+ }
   const [{ user, basket}] = useContext(DataContext);
 
   const totalItem = basket?.reduce((amount,item)=>{
@@ -43,10 +47,12 @@ const Payment = () => {
         <hr/>
         <div className={Classes.flex}>
           <h3>Payment Methods</h3>
-          <div>
+          <div className={Classes.payment__card__Container}>
             <div>
               <form action=''>
-                <CardElement/>
+              {errors && <small style={{color:"red"}}>{errors}</small>
+              }
+                <CardElement onChange={changeHandler}/>
               </form>
             </div>
           </div>
