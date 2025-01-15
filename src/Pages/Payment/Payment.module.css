@@ -1,0 +1,23 @@
+.Payment__header{
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(234, 236, 235);
+    font-size: 24px;
+}
+.payment{
+    padding: 30px;
+}
+.flex{
+    display: flex;
+    gap:20px;
+    padding: 30px;
+}
+.flex h3{
+    min-width: 300px;
+}
+.flex image{
+    width: 80px !important;
+}
+.flex div{
+    height: auto !important;
+}
