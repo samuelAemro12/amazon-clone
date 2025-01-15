@@ -3,7 +3,7 @@ import Classes from './Payment.module.css'
 import LayOut from '../../components/LayOut/LayOut';
 import { DataContext } from '../../components/DataProvider/DataProvider';
 import ProductCard from '../../components/Product/ProductCard.js';
-import {useStripe, useElements} from '@stripe/react-stripe-js';
+import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 
 const Payment = () => {
   const stripe = useStripe();
@@ -24,7 +24,7 @@ const Payment = () => {
         <div className={Classes.flex}>
           <h3>Delivery Address</h3>
           <div>
-            <div>{user.email}</div>
+            <div>{user?.email}</div>
             <div>Address Street</div>
             <div>Addis Ababa, Ethiopia</div>
           </div>
@@ -46,7 +46,7 @@ const Payment = () => {
           <div>
             <div>
               <form action=''>
-
+                <CardElement/>
               </form>
             </div>
           </div>
