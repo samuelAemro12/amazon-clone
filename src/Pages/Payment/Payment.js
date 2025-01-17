@@ -47,11 +47,13 @@ const Payment = () => {
         created: paymentIntent.created
       });
         SetProcessing(false);
+        // console.log("navigate to orders");
         navigate("/orders", {
-          state:{msg:"you have successfully placed your new order"}}
+          state:{msg:"you have successfully placed your new order"},}
         );
+        // console.log("order saved succesfully in firebase ");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       SetProcessing(false);
     }
   }
