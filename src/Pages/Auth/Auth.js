@@ -1,12 +1,13 @@
 import React, {useState, useContext} from 'react';
 import Classes from './Auth.module.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Amazonimg from '../../Assets/AmazonLogoForSignUp.jpg';
 import {auth} from '../../Utility/Firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 import {DataContext} from '../../components/DataProvider/DataProvider';
 import { Type } from '../../Utility/action.type';
 import { RiseLoader } from 'react-spinners';
+
 
 const Auth = () => {
 
@@ -19,6 +20,8 @@ const Auth = () => {
     signUp:false
   });
   const navigate = useNavigate();
+
+  const navData = useLocation();
 
   const authHandler = async (e)=>{
       e.preventDefault();
@@ -35,7 +38,7 @@ const Auth = () => {
             user:userInformation.user
        });
        setIsLoading({...isLoading, signIn:false});
-       navigate("/");
+       navigate(navData?.state?.redirect || "/");
       }).catch((err)=>{
         setError(err.message);
         setIsLoading({...isLoading, signIn:false})
@@ -49,7 +52,7 @@ const Auth = () => {
             user:userInformation.user
        });
        setIsLoading({...isLoading, signUp:false});
-       navigate("/");
+       navigate(navData?.state?.redirect || "/");
       }).catch((err)=>{
         setError(err.message);
         setIsLoading({...isLoading, signUp:false})
@@ -66,6 +69,14 @@ const Auth = () => {
 
       <div className={Classes.signin__container}>
         <h1>Sign In</h1>
+          {navData?.state?.msg && (
+            <small style={{padding:"5px",
+                    textAlign:"center", color:"red", fontWeight:"bold"}}>
+              {navData?.state?.msg}
+            </small>
+          )
+          }
+          
         <form action=''>
           <div>
             <label htmlFor='email'>Email</label>
