@@ -14,6 +14,9 @@ const Payment = () => {
     console.log(e);
     (e?.error?.message? SetErrors(e?.error?.message): SetErrors(""));
  }
+  const handlePayment = (e) =>{
+    e.preventDefault();
+  }
   const [{ user, basket}] = useContext(DataContext);
 
   const totalItem = basket?.reduce((amount,item)=>{
@@ -54,7 +57,7 @@ const Payment = () => {
           <h3>Payment Methods</h3>
           <div className={Classes.payment__card}>
             <div className={Classes.info}>
-              <form action=''>
+              <form onSubmit={handlePayment}>
               {errors && <small style={{color:"red"}}>{errors}</small>}
                 <CardElement style={{gap:"10px"}} onChange={changeHandler}/>
                 <div className={Classes.payment__price}>
