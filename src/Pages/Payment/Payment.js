@@ -5,6 +5,7 @@ import { DataContext } from '../../components/DataProvider/DataProvider';
 import ProductCard from '../../components/Product/ProductCard.js';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat.js';
+import { axiosInstance } from '../../API/axios.js';
 
 const Payment = () => {
   const stripe = useStripe();
@@ -14,8 +15,21 @@ const Payment = () => {
     console.log(e);
     (e?.error?.message? SetErrors(e?.error?.message): SetErrors(""));
  }
-  const handlePayment = (e) =>{
+  const handlePayment = async (e) =>{
     e.preventDefault();
+    try {
+      // 1. backend || function contact the client secret 
+      const response = await axiosInstance({
+        method:"post",
+        url:`/payment/create?total=${total*100}`
+      });
+      console.log(response.data);
+      const clientSecret = response.data?.clientSecret;
+    } catch (error) {
+      console.log(error);
+      // 2. client side (react side confirmation)
+      // 3. order firestore databse save and clear basket
+    }
   }
   const [{ user, basket}] = useContext(DataContext);
 
@@ -62,6 +76,7 @@ const Payment = () => {
                 <CardElement style={{gap:"10px"}} onChange={changeHandler}/>
                 <div className={Classes.payment__price}>
                   <div>
+                  {/* credit cared nmber just put 4242... in this pattern */}
                     <span style={{display:"flex", gap:"20px"}}>
                         <p>Total Item:</p> <CurrencyFormat amount={total}/>
                     </span>
