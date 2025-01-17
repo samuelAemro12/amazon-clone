@@ -92,7 +92,15 @@ const Payment = () => {
                         <p>Total Item:</p> <CurrencyFormat amount={total}/>
                     </span>
                   </div>
-                  <button>Pay now</button>
+                  <button>
+                  {
+                    processing? (
+                    <div className={Classes.payment__loader}>
+                      <riseLoader color={"#f0c14b"} size={10}/>
+                    </div>
+                    ):"Buy Now"
+                  }
+                  </button>
                 </div>
               </form>
             </div>
