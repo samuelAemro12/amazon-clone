@@ -51,3 +51,10 @@
 .payment__info button:hover{
     background-color: var(--primary-color);
 }
+.payment__loader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    color: rgb(48,52,49);
+}
