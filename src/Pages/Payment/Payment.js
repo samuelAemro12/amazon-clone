@@ -8,8 +8,11 @@ import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat.js';
 import { axiosInstance } from '../../API/axios.js';
 import { RiseLoader } from 'react-spinners';
 import {db} from '../../Utility/Firebase.js';
+import { useNavigate } from 'react-router-dom';
+
 
 const Payment = () => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const [errors, SetErrors] = useState(null);
@@ -38,8 +41,15 @@ const Payment = () => {
       );
       console.log(paymentIntent);
         // 3. order firestore databse save and clear basket
-
+      await db.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent.id).set({
+        basket: basket,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created
+      });
         SetProcessing(false);
+        navigate("/orders", {
+          state:{msg:"you have successfully placed your new order"}}
+        );
     } catch (error) {
       console.log(error);
       SetProcessing(false);
