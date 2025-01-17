@@ -11,6 +11,7 @@ const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [errors, SetErrors] = useState(null);
+  const [processing, SetProcessing] = useState(false);
   const changeHandler = (e) =>{
     console.log(e);
     (e?.error?.message? SetErrors(e?.error?.message): SetErrors(""));
@@ -19,6 +20,7 @@ const Payment = () => {
     e.preventDefault();
     try {
       // 1. backend || function contact the client secret 
+      SetProcessing(true);
       const response = await axiosInstance({
         method:"post",
         url:`/payment/create?total=${total*100}`
@@ -33,10 +35,11 @@ const Payment = () => {
           }}
       );
       console.log(confirmation);
+        // 3. order firestore databse save and clear basket
+        SetProcessing(false);
     } catch (error) {
       console.log(error);
-      
-      // 3. order firestore databse save and clear basket
+      SetProcessing(false);
     }
   }
   const [{ user, basket}] = useContext(DataContext);
