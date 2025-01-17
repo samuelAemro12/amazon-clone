@@ -26,7 +26,10 @@ const Routers = () => {
             </Elements>
           </ProtectedRoute>
         } />
-        <Route path="/orders" element={<Orders />} />
+        <Route path="/orders" element={
+          <ProtectedRoute msg={"you must login to see your orders"} redirect={"/orders"}>
+             <Orders />
+          </ProtectedRoute>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
