@@ -6,6 +6,8 @@ import ProductCard from '../../components/Product/ProductCard.js';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat.js';
 import { axiosInstance } from '../../API/axios.js';
+import { RiseLoader } from 'react-spinners';
+import {db} from '../../Utility/Firebase.js';
 
 const Payment = () => {
   const stripe = useStripe();
@@ -28,14 +30,15 @@ const Payment = () => {
       console.log(response.data);
       const clientSecret = response.data?.clientSecret;
       // 2. client side (react side confirmation)
-      const confirmation = await stripe.confirmCardPayment(
+      const {paymentIntent} = await stripe.confirmCardPayment(
         clientSecret,{
           payment_method:{
             card:elements.getElement(CardElement),
           }}
       );
-      console.log(confirmation);
+      console.log(paymentIntent);
         // 3. order firestore databse save and clear basket
+
         SetProcessing(false);
     } catch (error) {
       console.log(error);
@@ -96,7 +99,7 @@ const Payment = () => {
                   {
                     processing? (
                     <div className={Classes.payment__loader}>
-                      <riseLoader color={"#f0c14b"} size={10}/>
+                      <RiseLoader color={"#f0c14b"} size={10}/>
                     </div>
                     ):"Buy Now"
                   }
