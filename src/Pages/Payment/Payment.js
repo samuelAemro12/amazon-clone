@@ -25,9 +25,17 @@ const Payment = () => {
       });
       console.log(response.data);
       const clientSecret = response.data?.clientSecret;
+      // 2. client side (react side confirmation)
+      const confirmation = await stripe.confirmCardPayment(
+        clientSecret,{
+          payment_method:{
+            card:elements.getElement(CardElement),
+          }}
+      );
+      console.log(confirmation);
     } catch (error) {
       console.log(error);
-      // 2. client side (react side confirmation)
+      
       // 3. order firestore databse save and clear basket
     }
   }
