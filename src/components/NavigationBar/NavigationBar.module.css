@@ -39,16 +39,20 @@
     border: white 1px solid;
     border-radius: 3px;
   }
-  @media (max-width: 768px) {
-        .lower__container ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-  
   @media (max-width: 576px) {
-        .nav__list {
-      display: none;
+    /* Compact layout for mobile screens */
+    .nav__list {
+      display: none; /* Hide the navigation list */
+    }
+  
+    .lower__container {
+      padding: 10px;
+      justify-content: center; /* Center the menu button */
+    }
+  
+    .menu__button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   }
-  
