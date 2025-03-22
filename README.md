@@ -58,4 +58,4 @@ Samuel Aemro Melese - https://github.com/samuelAemro12/
 This project allowed me to explore full-stack development while learning React, Express.js, and Firebase and a bit of asynchronous JavaScript. I worked on implementing user authentication, product display, and the shopping cart functionality, and fast page to page and component routing. The FakeStoreAPI provided the product data. During development, I used resources like React.js Documentation, Express.js Documentation, for learning and troubleshooting. 
 
 ## Contact:
-Samuel Aemro - samuelaemrowork12@gmail.com
+Samuel Aemro Melese - samuelaemrowork12@gmail.com
