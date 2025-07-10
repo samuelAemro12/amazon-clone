@@ -46,13 +46,85 @@
     }
   
     .lower__container {
-      padding: 10px;
-      justify-content: center; /* Center the menu button */
+      padding: 0 2vw;
+      min-height: 44px;
+      margin-top: 0;
+      border-top: none;
+      z-index: 1050;
     }
   
     .menu__button {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0;
+      justify-content: flex-start;
+    }
+
+    /* Side Drawer Styles */
+    .side__drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 75vw;
+      max-width: 320px;
+      background: #232f3e;
+      color: white;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1200;
       display: flex;
-      justify-content: center;
-      width: 100%;
+      flex-direction: column;
+      padding-top: 1.5rem;
+    }
+    .side__drawer__open {
+      transform: translateX(0);
+    }
+    .drawer__close__button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      align-self: flex-end;
+      margin: 0 1rem 1rem 0;
+      cursor: pointer;
+    }
+    .drawer__nav__list {
+      list-style: none;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .drawer__nav__list li {
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .drawer__nav__list li:last-child {
+      border-bottom: none;
+    }
+    .drawer__nav__list li:hover {
+      color: var(--primary-color);
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+    }
+    .drawer__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1100;
+    }
+    .drawer__overlay__active {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
