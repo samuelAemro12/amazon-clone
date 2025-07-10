@@ -11,3 +11,37 @@
         rgba(220, 220, 225, 0),
         rgba(200, 250, 230)) ;
 }
+.carousel-root,
+.carousel,
+.carousel .slide,
+.carousel .slide img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+@media (max-width: 1024px) {
+  .carousel-root,
+  .carousel,
+  .carousel .slide,
+  .carousel .slide img {
+    max-height: 340px;
+  }
+  .image__style::before {
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-root,
+  .carousel,
+  .carousel .slide,
+  .carousel .slide img {
+    max-height: 180px;
+  }
+  .image__style::before {
+    height: 80px;
+  }
+}

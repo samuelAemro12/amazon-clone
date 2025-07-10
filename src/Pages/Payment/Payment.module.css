@@ -58,3 +58,38 @@
     justify-content: center;
     color:black;
 }
+@media (max-width: 900px) {
+  .payment {
+    padding: 12px;
+  }
+  .payment__stacker {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  .Payment__header {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .payment {
+    padding: 4px;
+  }
+  .payment__stacker {
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px;
+  }
+  .Payment__header {
+    font-size: 15px;
+    padding: 6px;
+  }
+  .payment__card {
+    max-width: 100%;
+    width: 100%;
+  }
+  .payment__price {
+    padding: 6px;
+  }
+}

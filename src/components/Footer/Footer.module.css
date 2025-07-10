@@ -1,6 +1,7 @@
 .footer {
   background-color: #232f3e;
-  padding: 20px 0;
+  padding: 36px 0;
+  min-height: 80px;
   text-align: center;
   margin-top: auto;
   width: 100%;
@@ -9,6 +10,18 @@
 .footerText {
   color: #ffffff;
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
+  padding-top: 10px;
   font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 24px 0;
+    min-height: 60px;
+  }
+  .footerText {
+    font-size: 16px;
+  }
 }

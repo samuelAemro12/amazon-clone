@@ -1,0 +1,8 @@
+body, .product-detail-root {
+  background: #f3f3f3;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* If the main wrapper in ProductDetail.js has a class, apply the background to it as well */

@@ -76,3 +76,27 @@
 .account__create__button:hover{
     background-color: lightgrey;
 }
+@media (max-width: 600px) {
+  .signin__container {
+    width: 98vw;
+    min-width: 0;
+    padding: 8px;
+    height: auto;
+  }
+  .signin img {
+    width: 90px;
+    height: 60px;
+  }
+  .signin__container h1 {
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+  .signin__button, .account__create__button {
+    height: 26px;
+    font-size: 0.95rem;
+  }
+  .signin__container p {
+    font-size: 10px;
+    padding: 6px 0;
+  }
+}
