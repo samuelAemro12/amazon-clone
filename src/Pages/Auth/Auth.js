@@ -26,10 +26,22 @@ const Auth = () => {
   const authHandler = async (e)=>{
       e.preventDefault();
 
-      // console.log(e.target.value);
+      // Basic validation
+      if (!email || !password) {
+        setError("Please fill in all fields");
+        return;
+      }
+
+      if (password.length < 6) {
+        setError("Password must be at least 6 characters");
+        return;
+      }
+
+      // Clear any previous errors
+      setError("");
 
     if (e.target.name === "signin") {
-      // firbase authentication
+      // Firebase authentication - Sign In
       setIsLoading({...isLoading, signIn:true});
       signInWithEmailAndPassword(auth, email, password)
       .then((userInformation)=>{
@@ -43,7 +55,8 @@ const Auth = () => {
         setError(err.message);
         setIsLoading({...isLoading, signIn:false})
       })
-    } else{
+    } else if (e.target.name === "signup") {
+      // Firebase authentication - Sign Up
       setIsLoading({...isLoading, signUp:true});
       createUserWithEmailAndPassword(auth, email, password)
       .then((userInformation)=>{
@@ -103,7 +116,7 @@ const Auth = () => {
         </p>
 
         <button className={Classes.account__create__button}
-                type="submit" onClick={authHandler} name='signun'
+                type="submit" onClick={authHandler} name='signup'
         >
           {
             isLoading.signUp ? (
