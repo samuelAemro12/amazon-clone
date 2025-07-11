@@ -5,7 +5,7 @@ A full-stack Amazon clone built with a mobile-first, responsive design using Rea
 ---
 
 ## 🚀 Live Demo
-- **Frontend (Netlify):** [samuel-amazon-clone-deploy.netlify.app/]
+- **Frontend (Netlify):** [https://samuel-amazon-clone-deploy.netlify.app/]
 - **Backend API (Render):** [https://amazon-backend-deploy-wd9j.onrender.com]
 
 ---
